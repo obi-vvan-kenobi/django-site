@@ -3,10 +3,8 @@ import logging
 import smtplib
 
 from django.core.mail import send_mail
-# import sys
-# sys.path.append("..")
 
-logging.basicConfig(filename='../books/logs/Pictures.log', level=logging.WARNING,
+logging.basicConfig(filename='books/logs/Pictures.log', level=logging.WARNING,
                     format="%(asctime)s - %(levelname)s - %(pathname)s: %(lineno)d - %(message)s - %(url)s")
 
 
