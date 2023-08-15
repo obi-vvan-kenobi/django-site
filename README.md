@@ -3,13 +3,13 @@
      - поднимется контейнер с MySql и контейнер с django
      - выполнются миграции
      - поднимется сервер, доступен по localhost:12333
-3. Для парсинга книг необходимо внутри контейнера (docker exec -it web /bin/bash) выполнить:
-     - cd utils/ && python books_data.py
+3. Для парсинга книг необходимо выполнить:
+     - docker exec -it web /bin/bash -c 'cd utils && python books_data.py'
      - Будет произведено добавление всех данных в БД и сохранение обложек книг в media/.
-4. Для доступа в админ-панель внутри контейнера выполнить:
-     - python manage.py createsuperuser
+4. Для доступа в админ-панель бходимо создать superuser:
+     - docker exec -it web /bin/bash -c 'python manage.py createsuperuser'
 5. В django_env.env перечислены переменные окружения, необходимо указать почту (EMAIL) для получения сообщений с формы обратной связи
-   и пароль приложения с почты(EMAIL_APP_PASSWORD). Для Yandex: .
+   и пароль приложения с почты(EMAIL_APP_PASSWORD). Для Yandex: https://id.yandex.ru/security/app-passwords.
 
 Форма обратной связи доступна для авторизованных пользователей. Установлена валидация полей форм и recaptcha.
 
