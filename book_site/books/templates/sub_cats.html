@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+Подкатегории:
+<ul>
+{% for sub_category in sub_cats %}
+    <li><a href="{{ sub_category.get_absolute_url }}">{{ sub_category }}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}

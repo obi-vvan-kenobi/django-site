@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if book.photo_url %}
+<p><img src="{{ book.photo_url.url }}"></p>
+{% endif %}
+
+{{ book.title }}
+
+<p>Категория:
+    {{ book.cat.name }}</p>
+
+<p>Количество страниц:
+    {{ book.page_count }}</p>
+
+<p>ISBN:
+    {{ book.isbn }}</p>
+
+{% if sub_cat %}
+<p>Подкатегория:
+{{ sub_cat.name }}</p>
+{% endif %}
+
+{% if another_books %}
+Книги из этой же категории:
+<ul>
+{% for another_book in another_books %}
+<li><a href="{{ another_book.get_absolute_url }}">{{ another_book }}</a></li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+{% endblock %}

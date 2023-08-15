@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if search_result %}
+    Книги найденные по запросу:
+    <ul>
+    {% for book in search_result %}
+        <li><a href="{{ book.get_absolute_url }}">{{ book }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    Ничего найти не удалось
+{% endif %}
+
+
+{% endblock %}
