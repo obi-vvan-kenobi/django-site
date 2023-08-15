@@ -87,3 +87,4 @@ def save_pic_and_parse_to_db():
 
 if __name__ == '__main__':
     save_pic_and_parse_to_db()
+    print('Все книги добавлены.')
