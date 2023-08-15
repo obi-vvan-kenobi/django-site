@@ -60,7 +60,7 @@ class ContactMultiForm(MultiModelForm):
                                                          telephone_number=contact['telephone_number'])
         message = self.cleaned_data['contact_message']['message']
         ContactMessages(contact_id=contact.pk, message=message).save()
-        send_email(message)
+        send_email(message, contact['email'])
         return super().save(commit=True)
 
 

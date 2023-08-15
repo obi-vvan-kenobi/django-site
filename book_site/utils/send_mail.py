@@ -10,12 +10,12 @@ logging.basicConfig(filename='../books/logs/Pictures.log', level=logging.WARNING
                     format="%(asctime)s - %(levelname)s - %(pathname)s: %(lineno)d - %(message)s - %(url)s")
 
 
-def send_email(text):
+def send_email(text, contact_email):
     try:
         send_mail(
             'Обратная связь',
             f'{text}',
-            'v.gornix@yandex.ru',
+            contact_email,
             [os.getenv('EMAIL')],
             fail_silently=False,
         )
